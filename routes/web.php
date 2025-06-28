@@ -96,6 +96,7 @@ Route::get('/admin/user/view/{id}', [UsersController::class, 'show'])->middlewar
 Route::get('/admin/user/add', [UsersController::class, 'show'])->middleware('auth','adminAccess');
 Route::get('/admin/user/edit/{id}', [UsersController::class, 'edit'])->middleware('auth','adminAccess');
 Route::post('/admin/user/userdetail', [UsersController::class, 'getUserDetail'])->middleware('auth','adminAccess');
+Route::post('/admin/user/userfiles', [UsersController::class, 'getUserFiles'])->middleware('auth','adminAccess');
 
 //Route::post('/admin/user/create', [UsersController::class, 'create'])->middleware('auth','adminAccess');
 Route::post('/admin/user/update', [UsersController::class, 'update'])->middleware('auth','adminAccess');

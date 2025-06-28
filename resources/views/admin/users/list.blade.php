@@ -124,7 +124,58 @@
 			],
         });
 
-                
+        $(document).on('click','.view-files',function(){
+             var rid = $(this).attr('data-rid');    
+
+             // build the ajax call
+			$.ajax({
+				url: site_url+"/admin/user/userfiles",
+				type: 'POST',
+				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+				data: {					
+					userid:rid,
+				},
+				success: function (response) {		
+                    console.log(response);
+                    //return false;
+
+					if(response.success == true){
+                        $(".modal-body").html("");
+                        $(".modal-body").html(response.data.modalBody);
+						/* $.toast({
+							heading: 'Success',
+							text: response.message,
+							showHideTransition: 'slide',
+							icon: 'success',
+							position:'top-right',
+						});		 */
+
+					}else{
+                        $(".modal-body").html("Not Found");
+						/* $.toast({
+							heading: 'Error',
+							text: response.message,
+							showHideTransition: 'fade',
+							icon: 'error',
+							position:'top-right',
+						});	 */	
+					}
+
+				},
+				error: function (response) {
+					//console.log(response);
+					$.toast({
+						heading: 'Error',
+						text: response.status+" "+response.statusText,
+						showHideTransition: 'fade',
+						icon: 'error',
+						position:'top-right',
+					});
+				},				
+			});
+            
+        });
+
         $(document).on('click','.view-info',function(){
 
             var rid = $(this).attr('data-rid');

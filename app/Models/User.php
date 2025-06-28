@@ -44,4 +44,9 @@ class User extends Authenticatable
     ];
 
     use SoftDeletes;
+
+    public function files()
+    {
+        return $this->hasMany(UserFile::class);
+    }
 }

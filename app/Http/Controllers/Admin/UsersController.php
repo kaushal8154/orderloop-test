@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 //use App\Models\Student;
 use App\Models\User;
+use App\Models\UserFile;
 use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
@@ -16,6 +17,25 @@ class UsersController extends Controller
 
         $pageData = [];
         return view('admin.users.list',['pageData'=>$pageData]);
+    }
+
+    public function getUserFiles(Request $request){
+        $credentials = $request->validate([
+            'userid' => ['required', 'numeric'],            
+        ]);
+        
+        $userid = $request->userid;        
+        //$allfiles = User::find($userid);       // lazy load
+        $allfiles = User::with('files')->find($userid);    // eager load    
+        
+        $modalBody = "";
+        $modalBody = view('admin.users.fileinfo',['pageData'=>$allfiles])->render();        
+
+        $apiData = ['modalBody'=>$modalBody];
+        $response = ['success'=>true,'message'=>'','data'=>$apiData];
+        
+        return response()->json($response);
+        
     }
 
     public function getUserDetail(Request $request){
@@ -139,6 +159,7 @@ class UsersController extends Controller
             $item->actions = "<a href='javascript:void(0);' data-toggle='modal' data-target='#modal-lg' class='btn btn-block bg-gradient-primary btn-xs view-info' data-rid='".$item->id."' >View</a> ";
             $item->actions.= "<a href='".$editurl."' class='btn btn-block bg-gradient-secondary btn-xs' href='#' >Edit</a>  ";
             $item->actions.= "<a href='".$delurl."' class='btn btn-block bg-gradient-danger btn-xs' href='#' >Delete</a>  ";
+            $item->actions.= "<a href='javascript:void(0);' data-toggle='modal' data-target='#modal-lg' class='btn btn-block bg-gradient-primary btn-xs view-files' data-rid='".$item->id."' >Files</a> ";
             
         }
 
