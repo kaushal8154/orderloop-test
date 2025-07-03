@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\UsersController;
-
+use App\Http\Controllers\Admin\SiteUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -106,5 +106,10 @@ Route::get('/admin/signout', function(){
     Auth::logout();    
     return redirect('/admin/login')->with('success', 'Logged Out Successfully!');
 })->name('adminsignout');
+
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('siteuser', SiteUserController::class);
+});
 
 /**   */
