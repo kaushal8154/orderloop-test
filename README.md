@@ -11,9 +11,11 @@ Rename .env.example  to .env
 
 Postman collection & Query Test doc given in Detail folder at root dir
 
-------------------------------------------------------------------------------------------
+Set values in .env file for this variables MAIL_USERNAME, MAIL_PASSWORD, MAIL_ENCRYPTION, MAIL_FROM_ADDRESS
 
-Database Setup
+-------------------------------------------------------------------------------------------
+
+<b>Database Setup</b>
 
 
 DB Name: kaushaltest
