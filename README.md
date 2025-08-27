@@ -20,13 +20,19 @@ DB Pass:
 ------------------------------------------------------------------------------------------
 
 -> Run composer install from the project root
--> Run Artisan commands:  
-            php artisan key:generate            
-            php artisan o:clear
-            php artisan optimize
-            php artisan db:seed
-            
 
+-> Run Artisan commands:
+
+            php artisan key:generate            
+
+            php artisan o:clear
+
+            php artisan optimize
+
+            php artisan db:seed
+
+
+            
 --------------------------------------------------------------------------
 
 Admin User
