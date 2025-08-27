@@ -60,6 +60,22 @@ user2@example.com
 
 ---------------------------------------------------------------------------
 
+        <b>Postman Setup</b>
+
+set env variables        
+
+    1. url: http://localhost/kaushaltest/public
+
+    2. token: 
+
+    you will get token in sign in API response. put it here.
+
+
+
+
+
+
+
 
 
 
