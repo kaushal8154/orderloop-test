@@ -37,6 +37,8 @@ DB Pass:
 
             php artisan optimize
 
+            php artisan migrate
+
             php artisan db:seed
 
 
