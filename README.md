@@ -1,5 +1,4 @@
-# laravel-demosite
-Kaushal Test - Library Management API
+# Kaushal Test - Library Management API
 
 Local URL: http://localhost/kaushaltest/public
 
