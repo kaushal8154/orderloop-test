@@ -20,9 +20,13 @@
             }
         </style>
     </head>
-    <body class="">        
+    <body class=""> 
+        
+        <p>
+            Hello Admin
+        </p>     
 
-        <p>New User registered {{ $firstname }}  {{ $lastname }} </p>
+        <p>User <b>{{ $username }}</b> has borrowed the book <b>{{ $bookname }}</b> </p>
 
     </body>
 </html>

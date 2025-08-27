@@ -212,4 +212,6 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    'notify_email' => env('NOTIFY_EMAIL'),
+
 ];

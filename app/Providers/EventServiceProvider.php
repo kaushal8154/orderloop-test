@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Events\UserRegistered;
+use App\Events\BookBorrowed;
 use App\Listeners\SendSignupNotification;
+use App\Listeners\SendBookNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -23,7 +25,9 @@ class EventServiceProvider extends ServiceProvider
         UserRegistered::class => [
             SendSignupNotification::class,
         ],
-        
+        BookBorrowed::class => [
+            SendBookNotification::class,
+        ],                
     ];
 
     /**

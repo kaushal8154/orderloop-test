@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\API\UsersController;
+use App\Http\Controllers\API\BookController;
 
 
 /*
@@ -26,39 +27,73 @@ use App\Http\Controllers\API\UsersController;
     return $request->user();
 }); */
 
-Route::post('/signin', function (Request $request) {  // /sanctum/token
-    //dd($request->email);
+Route::post('/signup', function (Request $request) {
+    $request->validate([
+        'firstname' => 'required',
+        'lastname' => 'required',
+        //'type' => 'required|in:user',
+        'email' => 'required|email',        
+        'password' => 'required',        
+    ]);
+    //dd("here");
+
+    //$emailExist = User::where('email', $request->email)->count();  
+    $emailExist = User::where('email', $request->email)->exists();  
+
+    if($emailExist == 1){
+        $response = array('success'=>false,'message'=>'Email already exists!','data'=>[]);
+        return response()->json($response);
+    }
+
+    $hashedPassword = Hash::make($request->password);
+    $newUser = User::create([
+        'firstname' => $request->firstname,
+        'lastname' => $request->lastname,
+        'email' => $request->email,
+        'password' => $hashedPassword,
+    ]);
+
+    $newUser->assignRole('User');
+
+    $response = array('success'=>true,'message'=>'Registered Succesfully!','data'=>[]);
+
+    return response()->json($response);
+
+});
+
+Route::post('/signin', function (Request $request) {    
 
     $request->validate([
         'email' => 'required|email',
-        'password' => 'required',
-        'device_name' => 'required',
+        'password' => 'required',        
     ]);    
     //dd($request->password);
     $user = User::where('email', $request->email)->first();    
      
     if (! $user || ! Hash::check($request->password, $user->password)) {
-        
-        /* throw ValidationException::withMessages([
-            'email' => ['The provided credentials are incorrect.'],
-        ]); */
-
+                
         $data = array();        
-
         $response = array('status'=>false,'message'=>'Incorrect Email or Password','data'=>$data);
         return response()->json($response);
 
     }
  
-    //return $user->createToken($request->device_name)->plainTextToken;
-    $token = $user->createToken($request->device_name,['*'],now()->addMinutes(60))->plainTextToken;
+    //return $user->createToken('')->plainTextToken;
+    $token = $user->createToken('',['*'],now()->addMinutes(180))->plainTextToken;
     $response = array('status'=>true,'message'=>'Logged In Succesfully!','token'=>$token,'data'=>[]);
     return response()->json($response);
 });
 
-Route::get('/dummyData', [UserController::class, 'dummyAPIdata'])->middleware('auth:sanctum');
-//Route::get('/dummyData', [UsersController::class, 'dummyAPIdata']);
+Route::middleware(['auth:sanctum'])->group(function () {
 
-/* Route::delete('/deleteYoaks/{id}',function(){
-    return response()->json("$id hhh",200);
-}); */
+    Route::post('/listbooks', [BookController::class, 'getBooksList']);
+    Route::get('/bookdetail/{id}', [BookController::class, 'getBookInfo']);
+    Route::post('/addbook', [BookController::class, 'addNewBook'])->middleware('permission:create books|edit books');
+    Route::get('/deletebook/{id}', [BookController::class, 'removeBook'])->middleware('permission:delete books');
+
+    Route::post('/borrowbook', [BookController::class, 'borrowBook']);
+    Route::post('/returnbook', [BookController::class, 'returnBook']);    
+});
+
+
+

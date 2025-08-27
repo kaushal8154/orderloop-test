@@ -99,8 +99,7 @@
 
 
 @section('pagescript')
-<script>
-    
+<script>    
     $(document).ready(function(){
         
         $('#tblUsersList').DataTable({
@@ -176,8 +175,8 @@
             
         });
 
-        $(document).on('click','.view-info',function(){
-
+        $(document).on('click','.view-info',function(){            
+            $(".modal-body").html("");
             var rid = $(this).attr('data-rid');
 
             // build the ajax call

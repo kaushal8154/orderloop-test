@@ -12,12 +12,6 @@ class UsersController extends Controller
 
     }
 
-    public function dummyAPIdata(){
-
-        $data = array();
-        $data['page_content']="This is dummy string.";
-
-        $response = array('success'=>true ,'message'=>'','data'=>[$data]);
-        return response()->json($response);
-    }
+    
+    
 }

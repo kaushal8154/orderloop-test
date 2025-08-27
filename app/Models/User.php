@@ -9,9 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use Spatie\Permission\Traits\HasRoles;
+
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable,SoftDeletes, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -51,4 +53,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserFile::class);
     }
+
+    public function borrowedBooks()
+    {
+        return $this->hasMany(BooksBorrowing::class);
+    }
+
+
 }
