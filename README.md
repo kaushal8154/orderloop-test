@@ -45,14 +45,16 @@ DB Pass:
             
 --------------------------------------------------------------------------
 
-Admin User
+<b>Test User Accounts</b>
+
+<b>Admin User</b>
 
 email: admin@adminmail.com
 
 pwd: admin123
 
 
-All users pwd: user123
+<b>All users pwd:</b> user123
 
 Users are generated through seeder
 
