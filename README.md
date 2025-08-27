@@ -24,6 +24,7 @@ DB User: root
 
 DB Pass:
 
+Note: There is one sql file in Detail folder (kaushaltest.sql)
 
 ------------------------------------------------------------------------------------------
 
