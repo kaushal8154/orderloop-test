@@ -42,9 +42,13 @@ pwd: admin123
 
 
 All users pwd: user123
+
 Users are generated through seeder
 
+
+
 user1@example.com
+
 user2@example.com
 
 ---------------------------------------------------------------------------
