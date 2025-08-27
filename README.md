@@ -60,7 +60,7 @@ user2@example.com
 
 ---------------------------------------------------------------------------
 
-        <b>Postman Setup</b>
+<b>Postman Setup</b>
 
 set env variables        
 
