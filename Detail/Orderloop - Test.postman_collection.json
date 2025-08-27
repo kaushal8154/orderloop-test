@@ -350,6 +350,12 @@
 							"value": "5",
 							"type": "text",
 							"disabled": true
+						},
+						{
+							"key": "action_type",
+							"value": "update",
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
@@ -362,7 +368,8 @@
 						"api",
 						"addbook"
 					]
-				}
+				},
+				"description": "allowed action_type values are 'add' and 'update'. one of two"
 			},
 			"response": []
 		}
