@@ -9,13 +9,19 @@ API URL: http://localhost/kaushaltest/public/api
 
 Rename .env.example  to .env
 
+Postman collection & Query Test doc given in Detail folder at root dir
+
 ------------------------------------------------------------------------------------------
 
 Database Setup
 
+
 DB Name: kaushaltest
+
 DB User: root
+
 DB Pass:
+
 
 ------------------------------------------------------------------------------------------
 
@@ -38,6 +44,7 @@ DB Pass:
 Admin User
 
 email: admin@adminmail.com
+
 pwd: admin123
 
 

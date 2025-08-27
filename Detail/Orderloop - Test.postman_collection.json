@@ -1,0 +1,402 @@
+{
+	"info": {
+		"_postman_id": "7bda7f27-cee9-475c-b0e1-f5c3df2b91fe",
+		"name": "Orderloop - Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46072798",
+		"_collection_link": "https://kaushal-8954412.postman.co/workspace/Kaushal's-Workspace~84777431-0b76-490c-813c-53b4c1196cc7/collection/46072798-7bda7f27-cee9-475c-b0e1-f5c3df2b91fe?action=share&source=collection_link&creator=46072798"
+	},
+	"item": [
+		{
+			"name": "Sign Up",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": " application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstname",
+							"value": "Kaushal",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Kapadiya",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "user",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "kaushal2@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/signup",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign In",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@adminmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/signin",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Books List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer yndpiZvSNG3ca1jz90gpxsRMy5bn8oa4tGCxswUE",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "page",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "open",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/listbooks",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"listbooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borow Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer yndpiZvSNG3ca1jz90gpxsRMy5bn8oa4tGCxswUE",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "bookid",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "open",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/borrowbook",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"borrowbook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer yndpiZvSNG3ca1jz90gpxsRMy5bn8oa4tGCxswUE",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "bookid",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "open",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/returnbook",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"returnbook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book Detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer yndpiZvSNG3ca1jz90gpxsRMy5bn8oa4tGCxswUE",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/bookdetail/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"bookdetail",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Book",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer yndpiZvSNG3ca1jz90gpxsRMy5bn8oa4tGCxswUE",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/deletebook/5",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"deletebook",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add/Update Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer yndpiZvSNG3ca1jz90gpxsRMy5bn8oa4tGCxswUE",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "bookname",
+							"value": "newbook 2",
+							"type": "text"
+						},
+						{
+							"key": "action_type",
+							"value": "add",
+							"type": "text"
+						},
+						{
+							"key": "bookid",
+							"value": "5",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/addbook",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"addbook"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "26|LVEkLzUP03ZxMysUs5y2V50aAVm2VvrMxeNOObcX0acb2a11",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
