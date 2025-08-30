@@ -241,9 +241,6 @@
 		},
 		{
 			"name": "Book Detail",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -259,10 +256,6 @@
 						"disabled": true
 					}
 				],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
 				"url": {
 					"raw": "{{url}}/api/bookdetail/1",
 					"host": [
@@ -279,9 +272,6 @@
 		},
 		{
 			"name": "Remove Book",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -297,10 +287,6 @@
 						"disabled": true
 					}
 				],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
 				"url": {
 					"raw": "{{url}}/api/deletebook/5",
 					"host": [

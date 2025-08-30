@@ -1,0 +1,274 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Orderloop - Test",
+    "contact": {},
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "{{url}}"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/api/signup": {
+      "post": {
+        "summary": "Sign Up",
+        "description": "Sign Up",
+        "operationId": "signUp",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/api_signup_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/signin": {
+      "post": {
+        "summary": "Sign In",
+        "description": "Sign In",
+        "operationId": "signIn",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/api_signin_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/listbooks": {
+      "post": {
+        "summary": "Books List",
+        "description": "Books List",
+        "operationId": "booksList",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/api_listbooks_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/borrowbook": {
+      "post": {
+        "summary": "Borow Book",
+        "description": "Borow Book",
+        "operationId": "borowBook",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/api_borrowbook_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/returnbook": {
+      "post": {
+        "summary": "Return Book",
+        "description": "Return Book",
+        "operationId": "returnBook",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/api_returnbook_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/bookdetail/1": {
+      "get": {
+        "summary": "Book Detail",
+        "description": "Book Detail",
+        "operationId": "bookDetail",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/deletebook/5": {
+      "get": {
+        "summary": "Remove Book",
+        "description": "Remove Book",
+        "operationId": "removeBook",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/addbook": {
+      "post": {
+        "summary": "Add/Update Book",
+        "description": "allowed action_type values are 'add' and 'update'. one of two",
+        "operationId": "addUpdateBook",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/api_addbook_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "api_returnbook_body": {
+        "type": "object",
+        "properties": {
+          "bookid": {
+            "type": "string",
+            "example": "1"
+          },
+          "status": {
+            "type": "string",
+            "example": "open"
+          }
+        }
+      },
+      "api_addbook_body": {
+        "type": "object",
+        "properties": {
+          "action_type": {
+            "type": "string",
+            "example": "update"
+          },
+          "bookid": {
+            "type": "string",
+            "example": "5"
+          },
+          "bookname": {
+            "type": "string",
+            "example": "newbook 2"
+          }
+        }
+      },
+      "api_listbooks_body": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string",
+            "example": "1"
+          },
+          "status": {
+            "type": "string",
+            "example": "open"
+          }
+        }
+      },
+      "api_borrowbook_body": {
+        "type": "object",
+        "properties": {
+          "bookid": {
+            "type": "string",
+            "example": "1"
+          },
+          "status": {
+            "type": "string",
+            "example": "open"
+          }
+        }
+      },
+      "api_signin_body": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "admin@adminmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "admin123"
+          }
+        }
+      },
+      "api_signup_body": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "kaushal2@gmail.com"
+          },
+          "firstname": {
+            "type": "string",
+            "example": "Kaushal"
+          },
+          "lastname": {
+            "type": "string",
+            "example": "Kapadiya"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          },
+          "type": {
+            "type": "string",
+            "example": "user"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
