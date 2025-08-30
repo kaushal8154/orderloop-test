@@ -7,6 +7,8 @@ Local URL: http://localhost/kaushaltest/public
 
 API URL: http://localhost/kaushaltest/public/api
 
+Swagger Doc: http://localhost/kaushaltest/public/api/documentation
+
 Rename .env.example  to .env
 
 Postman collection & Query Test doc given in Detail folder at root dir
