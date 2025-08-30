@@ -7,7 +7,7 @@ Local URL: http://localhost/kaushaltest/public
 
 API URL: http://localhost/kaushaltest/public/api
 
-Swagger Doc: http://localhost/kaushaltest/public/api/documentation
+Swagger API Doc: http://localhost/kaushaltest/public/api/documentation
 
 Rename .env.example  to .env
 
