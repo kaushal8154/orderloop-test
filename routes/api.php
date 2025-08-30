@@ -18,7 +18,7 @@ use App\Http\Controllers\API\BookController;
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function(){
 
     Route::post('/listbooks', [BookController::class, 'getBooksList']);
     Route::get('/bookdetail/{id}', [BookController::class, 'getBookInfo']);
@@ -29,11 +29,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/returnbook', [BookController::class, 'returnBook']);    
 });
 
-Route::post('/signup', function (Request $request) {
+Route::post('/signup', function(Request $request){
     $request->validate([
         'firstname' => 'required',
-        'lastname' => 'required',
-        //'type' => 'required|in:user',
+        'lastname' => 'required',        
         'email' => 'required|email',        
         'password' => 'required',        
     ]);
@@ -54,7 +53,6 @@ Route::post('/signup', function (Request $request) {
         'email' => $request->email,
         'password' => $hashedPassword,
     ]);
-
     $newUser->assignRole('User');
 
     $response = array('success'=>true,'message'=>'Registered Succesfully!','data'=>[]);
